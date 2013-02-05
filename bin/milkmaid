@@ -138,7 +138,7 @@ Main {
           task = milkmaid.incomplete_tasks(params['listnum'].value)[params['tasknum'].value-1]
           if params['confirm'].value
             puts "Delete \"#{colorize(task)}\"? (yes/no) "
-            puts "Please enter yes or no." until ["yes", "no\n"].include?(ans = STDIN.gets[0..2])
+            puts "Please enter yes or no." until ["yes", "no"].include?(ans = STDIN.gets.chomp)
           end
           milkmaid.delete_task params['tasknum'].value if (ans == "yes" or not params['confirm'].value)
         }
